@@ -1,0 +1,742 @@
+{
+	"info": {
+		"_postman_id": "859d0630-1856-4e11-8741-a3c93431d804",
+		"name": "Loan_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31825310"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Login Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"jimh25@gmail.com\",\r\n    \"password\" : \"jimh25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/customers/adbcd3e5-de79-49e2-9474-f8906fbfd7b0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"adbcd3e5-de79-49e2-9474-f8906fbfd7b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"adbcd3e5-de79-49e2-9474-f8906fbfd7b0\",\r\n    \"firstName\" : \"Jane\",\r\n    \"lastName\" : \"Doe\",\r\n    \"dateOfBirth\" : \"1990-12-02\",\r\n    \"phone\" : \"08187137812\",\r\n    \"email\" : \"jane12@gmail.com\",\r\n    \"password\" : \"jane12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customers/adbcd3e5-de79-49e2-9474-f8906fbfd7b0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"adbcd3e5-de79-49e2-9474-f8906fbfd7b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Soft Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzkzMTAzLCJpYXQiOjE3MDI3ODk1MDMsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.DmsiE2Wus4CHldfD-COdHUZTBgJiXM1aWskyz419i5k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customers/12cc772a-030a-45e6-9c23-c78965cd80b5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"12cc772a-030a-45e6-9c23-c78965cd80b5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Customer (Auth)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users/ff0d9f2a-f7e8-4477-a365-aee7fcec6a8c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"ff0d9f2a-f7e8-4477-a365-aee7fcec6a8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Installment Type",
+			"item": [
+				{
+					"name": "Add New Installment Type (Admin & Staff Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODEzMzA3LCJpYXQiOjE3MDI4MDk3MDcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.hEbviz_anduUTqvHvNWGSBBpNaYIaWV6quLGCZPYhRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"installmentType\": \"TWELVE_MONTHS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/instalment-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instalment-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Installment Type (Admin & Staff Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODEzMzA3LCJpYXQiOjE3MDI4MDk3MDcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.hEbviz_anduUTqvHvNWGSBBpNaYIaWV6quLGCZPYhRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/instalment-types/d4510574-e779-41e2-b507-ad4adc1c1c76",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instalment-types",
+								"d4510574-e779-41e2-b507-ad4adc1c1c76"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Installment Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/instalment-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instalment-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Installment Types by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/instalment-types/4f3338ed-348a-44ec-939a-3fb6da7f0add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instalment-types",
+								"4f3338ed-348a-44ec-939a-3fb6da7f0add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Installment Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"e674f78d-a5e2-4b09-9b26-71facd0a02c4\",\r\n    \"installmentType\" : \"NINE_MONTHS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/instalment-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instalment-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup Admin/Staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"nick5@gmail.com\",\r\n    \"password\" : \"nick5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin/Staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"nick5@gmail.com\",\r\n    \"password\" : \"nick5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Pam\",\r\n    \"lastName\" : \"Beasley\",\r\n    \"dateOfBirth\" : \"1992-05-05\",\r\n    \"phone\" : \"0813016428\",\r\n    \"email\" : \"pam92@gmail.com\",\r\n    \"password\" : \"pam92\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Customer",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loan Type",
+			"item": [
+				{
+					"name": "Add Loan Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"Pinjaman Kredit Kendaraan\",\r\n  \"maxLoan\": 50000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/loan-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loan-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Loan Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/loan-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loan-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Loan Type by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/loan-types/6faaab88-6d64-4a60-b020-a65eb166efc5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loan-types",
+								"6faaab88-6d64-4a60-b020-a65eb166efc5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Loan Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"6faaab88-6d64-4a60-b020-a65eb166efc5\",\r\n        \"type\": \"Pinjaman Kredit Elektronik\",\r\n        \"maxLoan\": 15000000\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/loan-types",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loan-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Installment Type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/loan-types/89bec240-c4a3-4f8f-a6f6-4d5b80a367f6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"loan-types",
+								"89bec240-c4a3-4f8f-a6f6-4d5b80a367f6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction by Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Loan Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiNzc4ODBjNWYtNjhjZC00NzJmLWIwNWQtMzE2Y2RhMWQ1M2MwIiwiZXhwIjoxNzAyODY2MzY4LCJpYXQiOjE3MDI4NjI3NjgsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.I-uOi7ZcLAX63TpKNM2AKoS31GodD776XTBiJmvgSSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"loanTransactionId\" : \"ecac8de9-7f52-4d85-a24d-19c9f3d80884\",\n    \"interestRates\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/transactions/approve",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transactions",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay Installment",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
