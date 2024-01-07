@@ -21,7 +21,7 @@ public class LoanTransactionDetail {
     @Column(name = "transaction_date")
     private Long transactionDate;
 
-    @Column(name = "nominal", columnDefinition = "DOUBLE PRECISION CHECK (nominal > 0)")
+    @Column(name = "nominal", columnDefinition = "DOUBLE PRECISION CHECK (nominal >= 0)")
     private Double nominal;
 
     @JsonIgnore
@@ -32,9 +32,6 @@ public class LoanTransactionDetail {
     @Enumerated(EnumType.STRING)
     @Column(name = "loan_status")
     private LoanStatus loanStatus;
-
-    @Column(name = "created_at")
-    private Long createdAt;
 
     @Column(name = "updated_at")
     private Long updatedAt;

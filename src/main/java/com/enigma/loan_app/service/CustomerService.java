@@ -11,5 +11,5 @@ public interface CustomerService {
     List<CustomerResponse> getAll();
     CustomerResponse getById(String id);
     CustomerResponse update(AuthRequest request);
-    void delete(String id);
+    Boolean delete(String id);
 }

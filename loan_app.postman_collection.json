@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "859d0630-1856-4e11-8741-a3c93431d804",
-		"name": "Loan_App",
+		"_postman_id": "6d4f4356-9e8b-4598-928f-cfed3cfcf859",
+		"name": "Mandiri_Loan_App",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31825310"
 	},
@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"jimh25@gmail.com\",\r\n    \"password\" : \"jimh25\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"ss19@gmail.com\",\r\n    \"password\" : \"ss19\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -174,14 +174,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Register Customer (Auth)",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			]
 		},
@@ -231,7 +223,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODEzMzA3LCJpYXQiOjE3MDI4MDk3MDcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.hEbviz_anduUTqvHvNWGSBBpNaYIaWV6quLGCZPYhRg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiOTBmMDQ0YjEtMTM3Zi00ZmU4LWE1YTAtZjY1OTY1MjMxZmFiIiwiZXhwIjoxNzA0NjUxMjI3LCJpYXQiOjE3MDQ2NDc2MjcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.dhi8REodUgNm0cGqo-unTQrS_CJ9mlCf8cagHH-3UxM",
 									"type": "string"
 								}
 							]
@@ -240,7 +232,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"installmentType\": \"TWELVE_MONTHS\"\r\n}",
+							"raw": "{\r\n  \"installmentType\": \"SIXTH_MONTHS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -409,7 +401,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"nick5@gmail.com\",\r\n    \"password\" : \"nick5\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"tony30@gmail.com\",\r\n    \"password\" : \"tony30\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -417,7 +409,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/auth/signup",
+							"raw": "localhost:8080/api/auth/signup/admin",
 							"host": [
 								"localhost"
 							],
@@ -425,7 +417,8 @@
 							"path": [
 								"api",
 								"auth",
-								"signup"
+								"signup",
+								"admin"
 							]
 						}
 					},
@@ -438,7 +431,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"nick5@gmail.com\",\r\n    \"password\" : \"nick5\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"tony30@gmail.com\",\r\n    \"password\" : \"tony30\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -467,7 +460,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\" : \"Pam\",\r\n    \"lastName\" : \"Beasley\",\r\n    \"dateOfBirth\" : \"1992-05-05\",\r\n    \"phone\" : \"0813016428\",\r\n    \"email\" : \"pam92@gmail.com\",\r\n    \"password\" : \"pam92\"\r\n}",
+							"raw": "{\r\n    \"firstName\" : \"Sebastian\",\r\n    \"lastName\" : \"Shaw\",\r\n    \"dateOfBirth\" : \"1996-08-10\",\r\n    \"phone\" : \"08871209456\",\r\n    \"email\" : \"ss19@gmail.com\",\r\n    \"password\" : \"ss19\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -489,14 +482,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Login Customer",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			]
 		},
@@ -511,7 +496,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiOTBmMDQ0YjEtMTM3Zi00ZmU4LWE1YTAtZjY1OTY1MjMxZmFiIiwiZXhwIjoxNzA0NjUxMjI3LCJpYXQiOjE3MDQ2NDc2MjcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.dhi8REodUgNm0cGqo-unTQrS_CJ9mlCf8cagHH-3UxM",
 									"type": "string"
 								}
 							]
@@ -520,7 +505,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"type\": \"Pinjaman Kredit Kendaraan\",\r\n  \"maxLoan\": 50000000\r\n}",
+							"raw": "{\r\n  \"type\": \"Pinjaman Kredit Bisnis\",\r\n  \"maxLoan\": 6000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -674,10 +659,30 @@
 			"name": "Transaction",
 			"item": [
 				{
-					"name": "Create Transaction",
+					"name": "Create Loan Request",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"loanType\": {\r\n    \"id\": \"afcce087-baa2-4508-a712-f6cfc8fa59df\"\r\n  },\r\n  \"installmentType\": {\r\n    \"id\": \"b9795e00-5071-4926-bd2f-83c01233ea85\"\r\n  },\r\n  \"customer\": {\r\n    \"id\": \"d99ec12f-213a-4a60-aba5-b2504430e244\"\r\n  },\r\n  \"nominal\": 80000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/transactions",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
 					},
 					"response": []
 				},
@@ -692,21 +697,11 @@
 				{
 					"name": "Approve Loan Request",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiNzc4ODBjNWYtNjhjZC00NzJmLWIwNWQtMzE2Y2RhMWQ1M2MwIiwiZXhwIjoxNzAyODY2MzY4LCJpYXQiOjE3MDI4NjI3NjgsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.I-uOi7ZcLAX63TpKNM2AKoS31GodD776XTBiJmvgSSc",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"loanTransactionId\" : \"ecac8de9-7f52-4d85-a24d-19c9f3d80884\",\n    \"interestRates\": 3\n}",
+							"raw": "{\r\n    \"loanTransactionId\" : \"63dc9c23-f355-4afc-80a9-a4c1046a5d8d\",\r\n    \"interestRates\": 1,\r\n    \"approvalStatus\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -731,8 +726,21 @@
 				{
 					"name": "Pay Installment",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/transactions/4a63888a-91cf-420e-b5c7-f36e278acced/pay",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transactions",
+								"4a63888a-91cf-420e-b5c7-f36e278acced",
+								"pay"
+							]
+						}
 					},
 					"response": []
 				}

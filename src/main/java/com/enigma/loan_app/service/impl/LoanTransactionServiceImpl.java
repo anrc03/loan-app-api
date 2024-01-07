@@ -1,17 +1,14 @@
 package com.enigma.loan_app.service.impl;
 
 import com.enigma.loan_app.constant.ApprovalStatus;
-import com.enigma.loan_app.constant.EInstallmentType;
 import com.enigma.loan_app.constant.LoanStatus;
 import com.enigma.loan_app.dto.request.ApproveTransactionRequest;
 import com.enigma.loan_app.dto.request.LoanTransactionRequest;
-import com.enigma.loan_app.dto.request.PayInstallmentRequest;
 import com.enigma.loan_app.entity.Customer;
 import com.enigma.loan_app.entity.LoanTransaction;
 import com.enigma.loan_app.entity.LoanTransactionDetail;
 import com.enigma.loan_app.repository.CustomerRepository;
 import com.enigma.loan_app.repository.LoanTransactionRepository;
-import com.enigma.loan_app.service.CustomerService;
 import com.enigma.loan_app.service.LoanTransactionService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -37,16 +34,19 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
         String customerId = request.getCustomer().getId();
         Customer customer = customerRepository.findById(customerId).orElse(null);
         if (loanTypeId != null &&  installmentTypeId!= null && customer != null) {
+            String[] dateArr =  String.valueOf(LocalDate.now()).split("-");
+            Long currentDate = Long.valueOf(String.join("", dateArr));
             LoanTransaction loanTransaction = LoanTransaction.builder()
                     .loanType(loanTypeService.getById(loanTypeId))
                     .installmentType(installmentTypeService.getById(installmentTypeId))
                     .customer(customer)
                     .nominal(request.getNominal())
+                    .interestRate(null)
                     .approvedAt(null)
                     .approvedBy(null)
                     .approvalStatus(null)
                     .loanTransactionDetails(null)
-                    .createdAt(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
+                    .createdAt(currentDate)
                     .updatedAt(null)
                     .build();
             return loanTransactionRepository.save(loanTransaction);
@@ -56,30 +56,34 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
 
     @Transactional(rollbackOn = Exception.class)
     @Override
-    public LoanTransaction approveRequest(ApproveTransactionRequest request) {
+    public LoanTransaction approveOrRejectRequest(ApproveTransactionRequest request) {
         LoanTransaction loanTransaction = loanTransactionRepository.findById(request.getLoanTransactionId()).orElse(null);
         if (loanTransaction != null) {
+            byte approvalStatus = request.getApprovalStatus();
+            String[] dateArr =  String.valueOf(LocalDate.now()).split("-");
+            Long currentDate = Long.valueOf(String.join("", dateArr));
+            Double rate = Double.valueOf(request.getInterestRates()) / 100;
+            Double interest = loanTransaction.getNominal() + (rate * loanTransaction.getNominal());
 
             List<LoanTransactionDetail> loanTransactionDetails = List.of(LoanTransactionDetail.builder()
-                    .transactionDate(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
-                    .nominal(loanTransaction.getNominal())
+                    .transactionDate(currentDate)
+                    .nominal(interest)
                     .loanStatus(LoanStatus.UNPAID)
-                    .createdAt(loanTransaction.getCreatedAt())
-                    .updatedAt(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
+                    .updatedAt(currentDate)
                     .build());
 
-            LoanTransaction transaction =  LoanTransaction.builder()
-                    .id(loanTransaction.getId())
+            LoanTransaction transaction = LoanTransaction.builder()
+                    .id(request.getLoanTransactionId())
                     .loanType(loanTransaction.getLoanType())
                     .installmentType(loanTransaction.getInstallmentType())
                     .customer(loanTransaction.getCustomer())
                     .nominal(loanTransaction.getNominal())
-                    .updatedAt(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
-                    .approvedAt(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
+                    .interestRate(request.getInterestRates())
+                    .approvedAt(currentDate)
                     .approvedBy(SecurityContextHolder.getContext().getAuthentication().getName())
-                    .approvalStatus(ApprovalStatus.APPROVED)
+                    .approvalStatus(ApprovalStatus.values()[approvalStatus])
                     .createdAt(loanTransaction.getCreatedAt())
-                    .updatedAt(loanTransaction.getUpdatedAt())
+                    .updatedAt(currentDate)
                     .loanTransactionDetails(loanTransactionDetails)
                     .build();
             for (LoanTransactionDetail i : loanTransactionDetails) i.setLoanTransaction(transaction);
@@ -93,21 +97,24 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
     @Override
     public String payInstallment(String id) {
         LoanTransaction loanTransaction = loanTransactionRepository.findById(id).orElse(null);
-        if (loanTransaction != null) {
-            LoanStatus loanStatus = loanTransaction.getLoanTransactionDetails().get(0).getLoanStatus();
-            if (loanStatus == LoanStatus.PAID) return null;
-            Double paymentNominal = loanTransaction.getNominal() / loanTransaction.getInstallmentType().getInstallmentType().intValue;
-            Double currentNominal = loanTransaction.getLoanTransactionDetails().get(0).getNominal();
-            double newNominal = currentNominal - paymentNominal;
-            if (currentNominal - paymentNominal <= 0) newNominal = 1;
-            System.out.println(paymentNominal);
+        if (loanTransaction != null && loanTransaction.getApprovalStatus().equals(ApprovalStatus.APPROVED)) {
+            String[] dateArr =  String.valueOf(LocalDate.now()).split("-");
+            Long currentDate = Long.valueOf(String.join("", dateArr));
+            LoanStatus loanStatus = loanTransaction.getLoanTransactionDetails().get(loanTransaction.getLoanTransactionDetails().size()-1).getLoanStatus();
+
+            if (loanStatus == LoanStatus.PAID) return "PAID";
+
+            Double interestValue = loanTransaction.getLoanTransactionDetails().get(0).getNominal();
+            Double paymentNominal = interestValue / loanTransaction.getInstallmentType().getInstallmentType().intValue;
+            Double debt = loanTransaction.getLoanTransactionDetails().get(loanTransaction.getLoanTransactionDetails().size()-1).getNominal();
+            double newNominal = debt - paymentNominal;
+            if (newNominal < 0) newNominal = 0;
+
             LoanTransactionDetail loanTransactionDetail = LoanTransactionDetail.builder()
-                    .id(loanTransaction.getLoanTransactionDetails().get(0).getId())
-                    .transactionDate(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
+                    .transactionDate(loanTransaction.getCreatedAt())
                     .nominal(newNominal)
                     .loanStatus(checkStatus(newNominal))
-                    .createdAt(loanTransaction.getCreatedAt())
-                    .updatedAt(Long.valueOf(String.valueOf(Math.round(Math.random() * (1699999 - 1600000 + 1) + 1600000))))
+                    .updatedAt(currentDate)
                     .loanTransaction(loanTransaction)
                     .build();
 
@@ -121,8 +128,9 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
                     .approvedBy(loanTransaction.getApprovedBy())
                     .approvalStatus(loanTransaction.getApprovalStatus())
                     .loanTransactionDetails(List.of(loanTransactionDetail))
-                    .createdAt(loanTransactionDetail.getCreatedAt())
-                    .updatedAt(loanTransactionDetail.getUpdatedAt())
+                    .createdAt(loanTransaction.getCreatedAt())
+                    .updatedAt(loanTransaction.getUpdatedAt())
+                    .interestRate(loanTransaction.getInterestRate())
                     .build();
             loanTransactionRepository.save(transaction);
             return String.format("LoanStatus: %s, Remaining: %s", loanTransactionDetail.getLoanStatus(), loanTransactionDetail.getNominal());
@@ -137,8 +145,8 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
 
     @Override
     public LoanStatus checkStatus(Double nominal) {
-        if (nominal <= 1) return LoanStatus.PAID;
-        if (nominal > 1) return LoanStatus.UNPAID;
+        if (nominal <= 0) return LoanStatus.PAID;
+        if (nominal > 0) return LoanStatus.UNPAID;
         return null;
     }
 }

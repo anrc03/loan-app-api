@@ -34,6 +34,9 @@ public class LoanTransaction {
     @Column(name = "nominal", columnDefinition = "DOUBLE PRECISION CHECK (nominal > 0)")
     private Double nominal;
 
+    @Column(name = "interest_rate", columnDefinition = "INT CHECK (interest_rate > 0)")
+    private Integer interestRate;
+
     @Column(name = "approved_at")
     private Long approvedAt;
 

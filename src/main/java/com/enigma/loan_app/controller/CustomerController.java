@@ -9,6 +9,7 @@ import com.enigma.loan_app.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF')")
     public ResponseEntity<?> getCustomerById(@PathVariable String id) {
         CustomerResponse response = customerService.getById(id);
         if (response != null) {
@@ -42,6 +44,7 @@ public class CustomerController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF')")
     public ResponseEntity<?> getAllCustomer() {
         List<CustomerResponse> response = customerService.getAll();
         return ResponseEntity.status(HttpStatus.OK)
@@ -54,6 +57,7 @@ public class CustomerController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF', 'ROLE_CUSTOMER)")
     public ResponseEntity<?> updateCustomer(@RequestBody AuthRequest request) {
         CustomerResponse customerResponse = customerService.update(request);
         if (request.getId() != null && customerResponse != null) {
@@ -67,19 +71,28 @@ public class CustomerController {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(
-                        CommonResponse.<CustomerResponse>builder()
-                                .message("Not Found")
+                        CommonResponse.<String>builder()
+                                .message("Operation Failed")
                                 .build()
                 );
     }
 
     @PutMapping(value = "/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF', 'ROLE_CUSTOMER)")
     public ResponseEntity<?> deleteCustomer(@PathVariable String id) {
-        customerService.delete(id);
+        Boolean status = customerService.delete(id);
+        if (status) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(
+                            CommonResponse.<String>builder()
+                                    .message("Successfully Deleted")
+                                    .build()
+                    );
+        }
         return ResponseEntity.status(HttpStatus.OK)
                 .body(
-                        CommonResponse.<Customer>builder()
-                                .message("Successfully Deleted")
+                        CommonResponse.<String>builder()
+                                .message("Operation Failed")
                                 .build()
                 );
     }

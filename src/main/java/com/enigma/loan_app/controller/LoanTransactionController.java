@@ -1,9 +1,9 @@
 package com.enigma.loan_app.controller;
 
 import com.enigma.loan_app.constant.AppPath;
+import com.enigma.loan_app.constant.ApprovalStatus;
 import com.enigma.loan_app.dto.request.ApproveTransactionRequest;
 import com.enigma.loan_app.dto.request.LoanTransactionRequest;
-import com.enigma.loan_app.dto.request.PayInstallmentRequest;
 import com.enigma.loan_app.dto.response.CommonResponse;
 import com.enigma.loan_app.entity.LoanTransaction;
 import com.enigma.loan_app.service.LoanTransactionService;
@@ -52,11 +52,19 @@ public class LoanTransactionController {
     @PutMapping(value = "/approve")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF')")
     public ResponseEntity<?> approveTransaction(@RequestBody ApproveTransactionRequest request) {
-        LoanTransaction transaction = loanTransactionService.approveRequest(request);
-        if (transaction != null) {
+        LoanTransaction transaction = loanTransactionService.approveOrRejectRequest(request);
+        if (transaction != null && transaction.getApprovalStatus() == ApprovalStatus.APPROVED) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     CommonResponse.<LoanTransaction>builder()
                             .message("Loan Request Approved")
+                            .data(transaction)
+                            .build()
+            );
+        }
+        if (transaction != null && transaction.getApprovalStatus() == ApprovalStatus.REJECTED) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    CommonResponse.<LoanTransaction>builder()
+                            .message("Loan Request Rejected")
                             .data(transaction)
                             .build()
             );
@@ -68,7 +76,18 @@ public class LoanTransactionController {
     @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public ResponseEntity<?> approveTransaction(@PathVariable String id) {
         String transaction = loanTransactionService.payInstallment(id);
-        if (transaction != null) {
+        if (transaction == null) return null;
+
+        if (transaction.equals("PAID")) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    CommonResponse.<String>builder()
+                            .message("Your loan is already paid off. Payment not executed.")
+                            .data(transaction)
+                            .build()
+            );
+        }
+
+        else {
             return ResponseEntity.status(HttpStatus.OK).body(
                     CommonResponse.<String>builder()
                             .message("Payment Successful")
@@ -76,7 +95,5 @@ public class LoanTransactionController {
                             .build()
             );
         }
-        return null;
     }
-
 }

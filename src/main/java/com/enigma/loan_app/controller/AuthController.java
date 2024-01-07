@@ -11,7 +11,6 @@ import com.enigma.loan_app.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,26 +30,26 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(
                         CommonResponse.<CustomerResponse>builder()
-                                .message("Successfully registered")
+                                .message("Successfully Registered")
                                 .data(response)
                                 .build()
                 );
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signup/admin")
     public ResponseEntity<?> register(@RequestBody AuthRequest authRequest) {
-        RegisterResponse response = authService.register(authRequest);
+        RegisterResponse response = authService.registerAdmin(authRequest);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(
                         CommonResponse.<RegisterResponse>builder()
-                                .message("Successfully registered")
+                                .message("Successfully Registered as Admin")
                                 .data(response)
                                 .build()
                 );
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AuthRequest request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         LoginResponse loginResponse = authService.login(request);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(

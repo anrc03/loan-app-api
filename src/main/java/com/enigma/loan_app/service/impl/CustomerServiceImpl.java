@@ -1,6 +1,7 @@
 package com.enigma.loan_app.service.impl;
 
 import com.enigma.loan_app.constant.CustomerStatus;
+import com.enigma.loan_app.constant.ERole;
 import com.enigma.loan_app.dto.request.AuthRequest;
 import com.enigma.loan_app.dto.response.CustomerResponse;
 import com.enigma.loan_app.dto.response.UserResponse;
@@ -12,6 +13,7 @@ import com.enigma.loan_app.service.CustomerService;
 import com.enigma.loan_app.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .build();
         customerRepository.saveAndFlush(customer);
         return CustomerResponse.builder()
+                .id(customer.getId())
                 .firstName(customer.getFirstName())
                 .lastName(customer.getLastName())
                 .dateOfBirth(customer.getDateOfBirth())
@@ -88,6 +91,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional(rollbackOn = Exception.class)
     @Override
     public CustomerResponse update(AuthRequest authRequest) {
+        String currentCustomer = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!(currentCustomer.equals(authRequest.getEmail()))) return null;
         Customer checkCustomer = customerRepository.findById(authRequest.getId()).orElse(null);
         if (checkCustomer != null) {
             String userId = checkCustomer.getUser().getId();
@@ -125,9 +130,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void delete(String id) {
+    public Boolean delete(String id) {
+        String currentCustomer = SecurityContextHolder.getContext().getAuthentication().getName();
         Customer checkCustomer = customerRepository.findById(id).orElse(null);
-        if (checkCustomer != null) {
+        if (checkCustomer != null && checkCustomer.getUser().getEmail().equals(currentCustomer)) {
             Customer customer = Customer.builder()
                     .id(checkCustomer.getId())
                     .firstName(checkCustomer.getFirstName())
@@ -138,6 +144,8 @@ public class CustomerServiceImpl implements CustomerService {
                     .user(checkCustomer.getUser())
                     .build();
             customerRepository.save(customer);
+            return true;
         }
+        return false;
     }
 }

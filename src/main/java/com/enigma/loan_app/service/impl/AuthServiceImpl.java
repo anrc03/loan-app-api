@@ -3,6 +3,7 @@ package com.enigma.loan_app.service.impl;
 import com.enigma.loan_app.constant.CustomerStatus;
 import com.enigma.loan_app.constant.ERole;
 import com.enigma.loan_app.dto.request.AuthRequest;
+import com.enigma.loan_app.dto.request.LoginRequest;
 import com.enigma.loan_app.dto.response.*;
 import com.enigma.loan_app.entity.AppUser;
 import com.enigma.loan_app.entity.Customer;
@@ -68,6 +69,7 @@ public class AuthServiceImpl implements AuthService {
             CustomerResponse customerResponse = customerService.create(customer);
 
             return CustomerResponse.builder()
+                    .id(customerResponse.getId())
                     .firstName(customerResponse.getFirstName())
                     .lastName(customerResponse.getLastName())
                     .dateOfBirth(customerResponse.getDateOfBirth())
@@ -87,7 +89,7 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public LoginResponse login(AuthRequest request) {
+    public LoginResponse login(LoginRequest request) {
         validationUtil.validate(request);
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 request.getEmail().toLowerCase(),
@@ -106,7 +108,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Transactional(rollbackOn = Exception.class)
     @Override
-    public RegisterResponse register(AuthRequest authRequest) {
+    public RegisterResponse registerAdmin(AuthRequest authRequest) {
         try {
             Role admin = Role.builder().name(ERole.ROLE_ADMIN).build();
             Role staff = Role.builder().name(ERole.ROLE_STAFF).build();

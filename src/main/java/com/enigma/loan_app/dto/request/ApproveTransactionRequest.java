@@ -13,4 +13,5 @@ import lombok.NoArgsConstructor;
 public class ApproveTransactionRequest {
     private String loanTransactionId;
     private Integer interestRates;
+    private byte approvalStatus;
 }

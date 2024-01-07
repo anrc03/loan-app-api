@@ -15,6 +15,5 @@ public class LoanTransactionDetailResponse {
     private Long transactionDate;
     private Double nominal;
     private LoanStatus loanStatus;
-    private Long createdAt;
     private Long updatedAt;
 }
