@@ -3,6 +3,7 @@ LOAN APPLICATION API
 This API enables user with CUSTOMER role to request a loan from anywhere (no need to physically go to a bank). User with ADMIN role can APPROVE or REJECT the request. 
 If the request is approved, customer has to pay their loan along with the interest rate each month according to the installment type the customer chose.
 <br>
+<br>
 Kindly check the Documentation folder to see files listed below.
 * How the API WORKS: Documentation/Loan-ApplicationV1.0-API-Documentation.pdf
 * SQL Query Documentation: Documentation/SQL-Query-Documentation.pdf
