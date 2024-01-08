@@ -1,6 +1,6 @@
 LOAN APPLICATION API
 ---
-This API enables user with CUSTOMER role to request a loan from anywhere (no need to physically go to a bank). User with ADMIN role can APPROVE or REJECT the request. 
+This API enables user with customer role to request a loan from anywhere (no need to physically go to a bank). User with admin role can approve or reject the request. 
 If the request is approved, customer has to pay their loan along with the interest rate each month according to the installment type the customer chose.
 <br>
 <br>
