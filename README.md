@@ -5,7 +5,7 @@ If the request is approved, customer has to pay their loan along with the intere
 
 * READ DOCUMENTATION (PDF FILE) TO SEE HOW THE API WORKS -> Loan-ApplicationV1.0-API-Documentation.pdf
 * DOCUMENTATION OF SQL QUERY FOR RESPONSE IN TABLE FORMAT IS ALSO AVAILABLE -> SQL-Query-Documentation.pdf
---
+---
 
 ##General Info
 Documentation for this project:
