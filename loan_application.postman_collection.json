@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "6d4f4356-9e8b-4598-928f-cfed3cfcf859",
-		"name": "Mandiri_Loan_App",
+		"_postman_id": "031ed2fc-5b3c-47e4-8225-ecc41a368ef0",
+		"name": "Loan_Application",
+		"description": "Collection for Loan Application API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31825310"
 	},
@@ -46,7 +47,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -75,7 +76,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -83,7 +84,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/customers/adbcd3e5-de79-49e2-9474-f8906fbfd7b0",
+							"raw": "localhost:8080/api/customers/04df197c-ea98-4b6d-91c2-724bbb151cff",
 							"host": [
 								"localhost"
 							],
@@ -91,46 +92,7 @@
 							"path": [
 								"api",
 								"customers",
-								"adbcd3e5-de79-49e2-9474-f8906fbfd7b0"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Customer",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\" : \"adbcd3e5-de79-49e2-9474-f8906fbfd7b0\",\r\n    \"firstName\" : \"Jane\",\r\n    \"lastName\" : \"Doe\",\r\n    \"dateOfBirth\" : \"1990-12-02\",\r\n    \"phone\" : \"08187137812\",\r\n    \"email\" : \"jane12@gmail.com\",\r\n    \"password\" : \"jane12\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/api/customers/adbcd3e5-de79-49e2-9474-f8906fbfd7b0",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"customers",
-								"adbcd3e5-de79-49e2-9474-f8906fbfd7b0"
+								"04df197c-ea98-4b6d-91c2-724bbb151cff"
 							]
 						}
 					},
@@ -144,7 +106,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzkzMTAzLCJpYXQiOjE3MDI3ODk1MDMsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.DmsiE2Wus4CHldfD-COdHUZTBgJiXM1aWskyz419i5k",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiOGVhN2RmYzktODJmYy00ZTc5LTg2N2QtMTg0N2M3ZGEzMzUzIiwiZXhwIjoxNzA0NzI0MDQ2LCJpYXQiOjE3MDQ3MjA0NDYsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.Q5jZJrT9MJGNrd3oY8kiTW-vASyY53m6v5vP0mDji7E",
 									"type": "string"
 								}
 							]
@@ -161,7 +123,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/customers/12cc772a-030a-45e6-9c23-c78965cd80b5",
+							"raw": "localhost:8080/api/customers/af907903-6c82-4de1-b239-7e84e6823899",
 							"host": [
 								"localhost"
 							],
@@ -169,13 +131,52 @@
 							"path": [
 								"api",
 								"customers",
-								"12cc772a-030a-45e6-9c23-c78965cd80b5"
+								"af907903-6c82-4de1-b239-7e84e6823899"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiZGZhNTE5ZGYtMzcxYS00ZmUyLWFlMTMtNmI3YTAyY2MyMzg1IiwiZXhwIjoxNzA0NzI0Njk0LCJpYXQiOjE3MDQ3MjEwOTQsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.r8dWV-wnwxaQ-f42dUKHyA36kp7LZZv6uxgBz1gDugg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"021d3b72-ef2f-4e6a-bb03-d7a5f057a85f\",\n    \"firstName\" : \"Sebastian\",\n    \"lastName\" : \"Brody\",\n    \"dateOfBirth\" : \"1996-08-10\",\n    \"phone\" : \"08781893132\",\n    \"email\" : \"ss19@gmail.com\",\n    \"password\" : \"ss19\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Customer Entity"
 		},
 		{
 			"name": "User",
@@ -188,7 +189,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiY2M2NWFjMzAtODg0OC00NWY1LTlhNjEtNGFjZDZlYjFkMDQ1IiwiZXhwIjoxNzAyNzg3MTkxLCJpYXQiOjE3MDI3ODM1OTEsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.NluNEaCj-u49_Y2tClaCIuepEv9t0w0BDGq5k-GRncc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -196,7 +197,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/users/ff0d9f2a-f7e8-4477-a365-aee7fcec6a8c",
+							"raw": "localhost:8080/api/users/dfa519df-371a-4fe2-ae13-6b7a02cc2385",
 							"host": [
 								"localhost"
 							],
@@ -204,13 +205,14 @@
 							"path": [
 								"api",
 								"users",
-								"ff0d9f2a-f7e8-4477-a365-aee7fcec6a8c"
+								"dfa519df-371a-4fe2-ae13-6b7a02cc2385"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Entity User"
 		},
 		{
 			"name": "Installment Type",
@@ -223,7 +225,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiOTBmMDQ0YjEtMTM3Zi00ZmU4LWE1YTAtZjY1OTY1MjMxZmFiIiwiZXhwIjoxNzA0NjUxMjI3LCJpYXQiOjE3MDQ2NDc2MjcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.dhi8REodUgNm0cGqo-unTQrS_CJ9mlCf8cagHH-3UxM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIxMzE4LCJpYXQiOjE3MDQ3MTc3MTgsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.lswUwP1LXIMMd_t1kY295JZFCZ9thHvROk9MKUIWQow",
 									"type": "string"
 								}
 							]
@@ -232,7 +234,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"installmentType\": \"SIXTH_MONTHS\"\r\n}",
+							"raw": "{\r\n  \"installmentType\": \"SIX_MONTHS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -254,31 +256,22 @@
 					"response": []
 				},
 				{
-					"name": "Delete Installment Type (Admin & Staff Only)",
+					"name": "Delete Installment Type",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODEzMzA3LCJpYXQiOjE3MDI4MDk3MDcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.hEbviz_anduUTqvHvNWGSBBpNaYIaWV6quLGCZPYhRg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "localhost:8080/api/instalment-types/d4510574-e779-41e2-b507-ad4adc1c1c76",
+							"raw": "localhost:8080/api/instalment-types/864981ed-6958-4583-9202-1f2b184b155b",
 							"host": [
 								"localhost"
 							],
@@ -286,7 +279,7 @@
 							"path": [
 								"api",
 								"instalment-types",
-								"d4510574-e779-41e2-b507-ad4adc1c1c76"
+								"864981ed-6958-4583-9202-1f2b184b155b"
 							]
 						}
 					},
@@ -300,7 +293,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -329,7 +322,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -337,7 +330,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/instalment-types/4f3338ed-348a-44ec-939a-3fb6da7f0add",
+							"raw": "localhost:8080/api/instalment-types/316939dc-081c-4ed6-8fd7-e6d82e1dbdd0",
 							"host": [
 								"localhost"
 							],
@@ -345,7 +338,7 @@
 							"path": [
 								"api",
 								"instalment-types",
-								"4f3338ed-348a-44ec-939a-3fb6da7f0add"
+								"316939dc-081c-4ed6-8fd7-e6d82e1dbdd0"
 							]
 						}
 					},
@@ -359,7 +352,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1MTI5LCJpYXQiOjE3MDI4MTE1MjksInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RMLWd_eExaJjHhBtcSlcMKjCf_ZeHDBmSKrm6kKrxzA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -368,7 +361,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\" : \"e674f78d-a5e2-4b09-9b26-71facd0a02c4\",\r\n    \"installmentType\" : \"NINE_MONTHS\"\r\n}",
+							"raw": "{\r\n    \"id\" : \"bbb82c45-72b9-48b9-b541-5d67d2107ec7\",\r\n    \"installmentType\" : \"NINE_MONTHS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -389,7 +382,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Entity Instalment Type"
 		},
 		{
 			"name": "Auth",
@@ -460,7 +454,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\" : \"Sebastian\",\r\n    \"lastName\" : \"Shaw\",\r\n    \"dateOfBirth\" : \"1996-08-10\",\r\n    \"phone\" : \"08871209456\",\r\n    \"email\" : \"ss19@gmail.com\",\r\n    \"password\" : \"ss19\"\r\n}",
+							"raw": "{\r\n    \"firstName\" : \"Pam\",\r\n    \"lastName\" : \"Beasley\",\r\n    \"dateOfBirth\" : \"1995-02-12\",\r\n    \"phone\" : \"087891437825\",\r\n    \"email\" : \"pam02@gmail.com\",\r\n    \"password\" : \"pam02\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -483,7 +477,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Authorization Operation (Sign-up and Login)"
 		},
 		{
 			"name": "Loan Type",
@@ -496,7 +491,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiOTBmMDQ0YjEtMTM3Zi00ZmU4LWE1YTAtZjY1OTY1MjMxZmFiIiwiZXhwIjoxNzA0NjUxMjI3LCJpYXQiOjE3MDQ2NDc2MjcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.dhi8REodUgNm0cGqo-unTQrS_CJ9mlCf8cagHH-3UxM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIxMzE4LCJpYXQiOjE3MDQ3MTc3MTgsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.lswUwP1LXIMMd_t1kY295JZFCZ9thHvROk9MKUIWQow",
 									"type": "string"
 								}
 							]
@@ -505,7 +500,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"type\": \"Pinjaman Kredit Bisnis\",\r\n  \"maxLoan\": 6000000\r\n}",
+							"raw": "{\r\n  \"type\": \"Pinjaman Kredit Kendaraan\",\r\n  \"maxLoan\": 5000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -534,7 +529,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -563,7 +558,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -571,7 +566,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/loan-types/6faaab88-6d64-4a60-b020-a65eb166efc5",
+							"raw": "localhost:8080/api/loan-types/a4f52939-6158-4d23-ba87-3a8c70d4590e",
 							"host": [
 								"localhost"
 							],
@@ -579,7 +574,7 @@
 							"path": [
 								"api",
 								"loan-types",
-								"6faaab88-6d64-4a60-b020-a65eb166efc5"
+								"a4f52939-6158-4d23-ba87-3a8c70d4590e"
 							]
 						}
 					},
@@ -593,7 +588,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
@@ -602,7 +597,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id\": \"6faaab88-6d64-4a60-b020-a65eb166efc5\",\r\n        \"type\": \"Pinjaman Kredit Elektronik\",\r\n        \"maxLoan\": 15000000\r\n    }",
+							"raw": "{\r\n        \"id\": \"9a59dd9f-6d08-4aa2-b431-ad9deee43404\",\r\n        \"type\": \"Pinjaman Kredit Bisnis\",\r\n        \"maxLoan\": 9000000\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -624,22 +619,31 @@
 					"response": []
 				},
 				{
-					"name": "Delete Installment Type",
+					"name": "Delete Loan Type",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiYmUxNjlmMGItZmM4YS00ZDBmLTlmYjAtZmRhYzViNzEzYjFlIiwiZXhwIjoxNzAyODE1NTQ1LCJpYXQiOjE3MDI4MTE5NDUsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.yrrrsbI-7w0w5ykokh7EGEQhiqolqGuhufk5U8NcjKc",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIyMzM3LCJpYXQiOjE3MDQ3MTg3MzcsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.RNvPf5aWKK5bPMhucngIyZe8koXELrOp6uM-ttVqt_w",
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/api/loan-types/89bec240-c4a3-4f8f-a6f6-4d5b80a367f6",
+							"raw": "localhost:8080/api/loan-types/9a59dd9f-6d08-4aa2-b431-ad9deee43404",
 							"host": [
 								"localhost"
 							],
@@ -647,13 +651,14 @@
 							"path": [
 								"api",
 								"loan-types",
-								"89bec240-c4a3-4f8f-a6f6-4d5b80a367f6"
+								"9a59dd9f-6d08-4aa2-b431-ad9deee43404"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Entity Loan Type"
 		},
 		{
 			"name": "Transaction",
@@ -661,11 +666,21 @@
 				{
 					"name": "Create Loan Request",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiZGZhNTE5ZGYtMzcxYS00ZmUyLWFlMTMtNmI3YTAyY2MyMzg1IiwiZXhwIjoxNzA0NzIxNDY1LCJpYXQiOjE3MDQ3MTc4NjUsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.e2Qfej4B6vyW1MQeO6ufy9KetqmF97lgUBDJLX51CsE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"loanType\": {\r\n    \"id\": \"afcce087-baa2-4508-a712-f6cfc8fa59df\"\r\n  },\r\n  \"installmentType\": {\r\n    \"id\": \"b9795e00-5071-4926-bd2f-83c01233ea85\"\r\n  },\r\n  \"customer\": {\r\n    \"id\": \"d99ec12f-213a-4a60-aba5-b2504430e244\"\r\n  },\r\n  \"nominal\": 80000000\r\n}",
+							"raw": "{\r\n  \"loanType\": {\r\n    \"id\": \"a4f52939-6158-4d23-ba87-3a8c70d4590e\"\r\n  },\r\n  \"installmentType\": {\r\n    \"id\": \"316939dc-081c-4ed6-8fd7-e6d82e1dbdd0\"\r\n  },\r\n  \"customer\": {\r\n    \"id\": \"021d3b72-ef2f-4e6a-bb03-d7a5f057a85f\"\r\n  },\r\n  \"nominal\": 3000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -690,18 +705,40 @@
 					"name": "Get Transaction by Id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/transactions/eef75551-54cf-4643-a111-b8ea91a79ed8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"transactions",
+								"eef75551-54cf-4643-a111-b8ea91a79ed8"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Approve Loan Request",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiMjdjY2JhODEtYjk4Zi00MTNlLWI5NjktZTFlYjIwZmE1MWI2IiwiZXhwIjoxNzA0NzIxMzE4LCJpYXQiOjE3MDQ3MTc3MTgsInJvbGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfU1RBRkYiXX0.lswUwP1LXIMMd_t1kY295JZFCZ9thHvROk9MKUIWQow",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"loanTransactionId\" : \"63dc9c23-f355-4afc-80a9-a4c1046a5d8d\",\r\n    \"interestRates\": 1,\r\n    \"approvalStatus\": 1\r\n}",
+							"raw": "{\r\n    \"loanTransactionId\" : \"eef75551-54cf-4643-a111-b8ea91a79ed8\",\r\n    \"interestRates\": 3,\r\n    \"approvalStatus\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -726,10 +763,20 @@
 				{
 					"name": "Pay Installment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJMb2FuIEFwcGxpY2F0aW9uIiwic3ViIjoiZGZhNTE5ZGYtMzcxYS00ZmUyLWFlMTMtNmI3YTAyY2MyMzg1IiwiZXhwIjoxNzA0NzIxNDY1LCJpYXQiOjE3MDQ3MTc4NjUsInJvbGUiOlsiUk9MRV9DVVNUT01FUiJdfQ.e2Qfej4B6vyW1MQeO6ufy9KetqmF97lgUBDJLX51CsE",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/api/transactions/4a63888a-91cf-420e-b5c7-f36e278acced/pay",
+							"raw": "localhost:8080/api/transactions/eef75551-54cf-4643-a111-b8ea91a79ed8/pay",
 							"host": [
 								"localhost"
 							],
@@ -737,14 +784,15 @@
 							"path": [
 								"api",
 								"transactions",
-								"4a63888a-91cf-420e-b5c7-f36e278acced",
+								"eef75551-54cf-4643-a111-b8ea91a79ed8",
 								"pay"
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Entity Transaction"
 		}
 	]
 }

@@ -57,7 +57,7 @@ public class CustomerController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF', 'ROLE_CUSTOMER)")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public ResponseEntity<?> updateCustomer(@RequestBody AuthRequest request) {
         CustomerResponse customerResponse = customerService.update(request);
         if (request.getId() != null && customerResponse != null) {
@@ -78,7 +78,7 @@ public class CustomerController {
     }
 
     @PutMapping(value = "/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STAFF', 'ROLE_CUSTOMER)")
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     public ResponseEntity<?> deleteCustomer(@PathVariable String id) {
         Boolean status = customerService.delete(id);
         if (status) {

@@ -25,8 +25,8 @@ public class InstallmentTypeServiceImpl implements BaseService<InstallmentType, 
             case "three_months":
                 installmentType.setInstallmentType(EInstallmentType.THREE_MONTHS);
                 break;
-            case "sixth_months":
-                installmentType.setInstallmentType(EInstallmentType.SIXTH_MONTHS);
+            case "six_months":
+                installmentType.setInstallmentType(EInstallmentType.SIX_MONTHS);
                 break;
             case "nine_months":
                 installmentType.setInstallmentType(EInstallmentType.NINE_MONTHS);
