@@ -20,4 +20,5 @@ This project is created with:
 * Java 17
 * SpringBoot 3.2.0
 * Maven 3.9.5
-* Lombok
+* JPA
+* PostgreSQL
