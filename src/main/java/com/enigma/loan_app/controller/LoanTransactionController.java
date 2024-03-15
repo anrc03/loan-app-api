@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(AppPath.TRANSACTION)
 @RequiredArgsConstructor
@@ -41,6 +43,21 @@ public class LoanTransactionController {
         if (transaction != null) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     CommonResponse.<LoanTransaction>builder()
+                            .message("Fetch Success")
+                            .data(transaction)
+                            .build()
+            );
+        }
+        return null;
+    }
+
+    @GetMapping
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
+    public ResponseEntity<?> getAllTransaction() {
+        List<LoanTransaction> transaction = loanTransactionService.getAllTransactionByToken();
+        if (transaction != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    CommonResponse.<List<LoanTransaction>>builder()
                             .message("Fetch Success")
                             .data(transaction)
                             .build()

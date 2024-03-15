@@ -9,7 +9,9 @@ import com.enigma.loan_app.entity.LoanTransaction;
 import com.enigma.loan_app.entity.LoanTransactionDetail;
 import com.enigma.loan_app.repository.CustomerRepository;
 import com.enigma.loan_app.repository.LoanTransactionRepository;
+import com.enigma.loan_app.security.JwtUtil;
 import com.enigma.loan_app.service.LoanTransactionService;
+import com.enigma.loan_app.util.ValidationUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,6 +28,8 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
     private final LoanTypeServiceImpl loanTypeService;
     private final InstallmentTypeServiceImpl installmentTypeService;
     private final CustomerRepository customerRepository;
+    private final JwtUtil jwtUtil;
+    private final ValidationUtil validationUtil;
 
     @Override
     public LoanTransaction create(LoanTransactionRequest request) {
@@ -148,5 +152,15 @@ public class LoanTransactionServiceImpl implements LoanTransactionService {
         if (nominal <= 0) return LoanStatus.PAID;
         if (nominal > 0) return LoanStatus.UNPAID;
         return null;
+    }
+
+    @Override
+    public List<LoanTransaction> getAllTransactionByToken() {
+        String token = validationUtil.extractTokenFromHeader();
+        String customerId= jwtUtil.getUserInfoByToken(token).get("customerId");
+        System.out.println("Token info: " + jwtUtil.getUserInfoByToken(token));
+        System.out.println("this is token: " + token);
+        System.out.println("this is customerId: " + customerId);
+        return loanTransactionRepository.findAllByCustomerId(customerId);
     }
 }
