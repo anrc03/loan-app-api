@@ -2,5 +2,6 @@ package com.enigma.loan_app.constant;
 
 public enum LoanStatus {
     PAID,
-    UNPAID
+    UNPAID,
+    NOT_FULLY_PAID
 }

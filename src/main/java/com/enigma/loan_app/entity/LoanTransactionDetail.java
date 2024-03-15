@@ -29,9 +29,8 @@ public class LoanTransactionDetail {
     @JoinColumn(name = "trx_loan_id")
     private LoanTransaction loanTransaction;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "loan_status")
-    private LoanStatus loanStatus;
+    @Column(name = "at_installment_number")
+    private Integer atInstallmentNumber;
 
     @Column(name = "updated_at")
     private Long updatedAt;

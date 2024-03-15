@@ -4,6 +4,7 @@ import com.enigma.loan_app.constant.AppPath;
 import com.enigma.loan_app.constant.ApprovalStatus;
 import com.enigma.loan_app.dto.request.ApproveTransactionRequest;
 import com.enigma.loan_app.dto.request.LoanTransactionRequest;
+import com.enigma.loan_app.dto.request.PayLoanRequest;
 import com.enigma.loan_app.dto.response.CommonResponse;
 import com.enigma.loan_app.entity.LoanTransaction;
 import com.enigma.loan_app.service.LoanTransactionService;
@@ -89,13 +90,19 @@ public class LoanTransactionController {
         return null;
     }
 
-    @PutMapping(value = "/{id}/pay")
+    @PutMapping(value = "/pay")
     @PreAuthorize("hasRole('ROLE_CUSTOMER')")
-    public ResponseEntity<?> approveTransaction(@PathVariable String id) {
-        String transaction = loanTransactionService.payInstallment(id);
-        if (transaction == null) return null;
+    public ResponseEntity<?> approveTransaction(@RequestBody PayLoanRequest payLoanRequest) {
+        String transaction = loanTransactionService.payInstallment(payLoanRequest.getLoanTransactionId());
+        if (transaction == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    CommonResponse.<String>builder()
+                            .message("Payment Failed")
+                            .build()
+            );
+        }
 
-        if (transaction.equals("PAID")) {
+        else if (transaction.equals("PAID")) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     CommonResponse.<String>builder()
                             .message("Your loan is already paid off. Payment not executed.")
@@ -104,13 +111,11 @@ public class LoanTransactionController {
             );
         }
 
-        else {
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    CommonResponse.<String>builder()
-                            .message("Payment Successful")
-                            .data(transaction)
-                            .build()
-            );
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(
+                CommonResponse.<String>builder()
+                        .message("Payment Successful")
+                        .data(transaction)
+                        .build()
+        );
     }
 }

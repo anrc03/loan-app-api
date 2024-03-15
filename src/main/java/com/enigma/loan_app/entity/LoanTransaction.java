@@ -1,6 +1,7 @@
 package com.enigma.loan_app.entity;
 
 import com.enigma.loan_app.constant.ApprovalStatus;
+import com.enigma.loan_app.constant.LoanStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -46,6 +47,10 @@ public class LoanTransaction {
     @Enumerated(EnumType.STRING)
     @Column(name = "approval_status")
     private ApprovalStatus approvalStatus;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "loan_status")
+    private LoanStatus loanStatus;
 
     @OneToMany(mappedBy = "loanTransaction", cascade = CascadeType.MERGE)
     private List<LoanTransactionDetail> loanTransactionDetails;

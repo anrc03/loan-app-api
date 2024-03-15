@@ -15,6 +15,5 @@ import lombok.NoArgsConstructor;
 public class LoanTransactionRequest {
     private LoanType loanType;
     private InstallmentType installmentType;
-    private Customer customer;
     private Double nominal;
 }
